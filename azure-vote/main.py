@@ -23,7 +23,7 @@ from opencensus.trace import config_integration
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
 
-instrumentation_key = "InstrumentationKey=ae68d755-4657-4582-9e23-622073900888"
+instrumentation_key = "InstrumentationKey=bb185ef2-844e-48fe-b83b-70365abcddec"
 
 # Logging
 config_integration.trace_integrations(['logging'])
@@ -33,6 +33,13 @@ logger = logging.getLogger(__name__) # TODO: Setup logger
 handler = AzureLogHandler(connection_string=instrumentation_key)
 handler.setFormatter(logging.Formatter('%(traceId)s %(spanId)s %(message)s'))
 logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+
+# Logging custom Events 
+logger.addHandler(AzureEventHandler(connection_string=instrumentation_key))
+# Set the logging level
+logger.setLevel(logging.INFO)
+
 # Metrics
 stats = stats_module.stats
 view_manager = stats.view_manager
