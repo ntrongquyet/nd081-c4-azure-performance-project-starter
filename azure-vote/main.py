@@ -23,7 +23,7 @@ from opencensus.trace import config_integration
 from opencensus.trace.samplers import ProbabilitySampler
 from opencensus.trace.tracer import Tracer
 
-instrumentation_key = "InstrumentationKey=bb185ef2-844e-48fe-b83b-70365abcddec"
+instrumentation_key = "InstrumentationKey=17d620ee-1550-4114-b126-cbfc4cb698d1"
 
 # Logging
 config_integration.trace_integrations(['logging'])
